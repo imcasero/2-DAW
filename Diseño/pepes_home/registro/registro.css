@@ -1,0 +1,4 @@
+.form-control .error {
+  border: 1px solid red !important;
+  place-content: red;
+}
