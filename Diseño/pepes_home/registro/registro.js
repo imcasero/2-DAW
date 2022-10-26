@@ -1,7 +1,7 @@
 //addEventlistener(click , e);
 
 function recogerDatos() {
-  
+  let validacion = true ;
   let email = document.getElementById("emailInput").value;
   console.log("el email es: " +email);
   let pass = document.getElementById("passInput").value;
@@ -12,7 +12,7 @@ function recogerDatos() {
   console.log("el apellido es: " +surname);
   let address = document.getElementById("addressInput").value;
   console.log("el address es: " +address);
-  let date = document.getElementById("datepicker").value;//why null
+  let date = document.getElementById("datepicker").value;
   console.log("el date es: " +date);
   let dni = document.getElementById("dniInput").value;
   console.log("el DNI es: " +dni);
@@ -23,6 +23,9 @@ function recogerDatos() {
   validarContrasena(pass);
   validarName(name);
   validarSurname(surname);
+  validarAddress(address);
+  validarCheck(check);
+  validarFin(validacion);
 }
 
 
@@ -32,6 +35,7 @@ function validarEmail(emailValue) {
     console.log("La dirección de email " + emailValue + " es correcta.");
   } else {
     console.log("La dirección de email es incorrecta.");
+    validacion = false;
   }
 }
 function validarContrasena(passwordValue) {
@@ -44,9 +48,11 @@ function validarContrasena(passwordValue) {
       console.log(passwordValue + " Contraseña valida");
     } else {
       console.log("Contraseña no valida");
+      validacion = false;
     }
   } else {
     console.log("Contraseña no valida por numero");
+    validacion = false;
   }
 }
 function validarName(nameValue) {
@@ -54,6 +60,7 @@ function validarName(nameValue) {
     console.log("Nombre valido");
   } else {
     console.log("Nombre no valido");
+    validacion = false;
   }
 }
 function validarSurname(surnameValue) {
@@ -61,6 +68,30 @@ function validarSurname(surnameValue) {
     console.log("Apellido valido");
   } else {
     console.log("Apellido no valido");
+    validacion = false;
   }
 }
-
+function validarAddress(address) {
+  if (isNaN(address)) {
+    console.log("Direccion valida");
+  } else {
+    console.log("Direccion no valida");
+    validacion = false;
+  }
+}
+function validarCheck(check) {
+  if(check == true){
+    console.log("Los terminos han sido aceptados");
+  } else {
+    console.log("Los terminos no han sido aceptados");
+    validacion = false;
+  }
+}
+function validarFin(validacion) {
+  if (validacion == false) {
+    console.log("No se ha validado");
+    alert("ERROR EN LOS DATOS");
+  } else {
+    console.log("validacion completada")
+  }
+}
