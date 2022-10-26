@@ -15,7 +15,7 @@
 
     $fraseDes = str_split($frase , 1);
 
-    $clave = array_search('a', $fraseDes);
+    $clave = array_search('a', $fraseDes); //strpost se sua esta
     if ($clave != null || $calve == false) {
         echo "La letra a se encuentra en : " . $clave . "(contando espacios)</br>";
     } else {
