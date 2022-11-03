@@ -4,19 +4,30 @@ function recogerDatos() {
   console.log("------------------RECOGIDA DE DATOS------------------");
   let email = document.getElementById("emailInput").value;
   console.log("el email es: " +email);
+  let emailInput  =document.getElementById("emailInput");
   let pass = document.getElementById("passInput").value;
+  let passInput  =document.getElementById("passInput");
   console.log("la contraseña es: " +pass);
   let name = document.getElementById("nameInput").value;
+  let nameInput  =document.getElementById("nameInput");
   console.log("el nombre es: " +name);
   let surname = document.getElementById("surnameInput").value;
+  let surnameInput  =document.getElementById("surnameInput");
   console.log("el apellido es: " +surname);
   let address = document.getElementById("addressInput").value;
+  let addressInput = document.getElementById("addressInput")
   console.log("el address es: " +address);
   let date = document.getElementById("datepicker").value;
+  let dateInput = document.getElementById("datepicker");
   console.log("el date es: " +date);
   let dni = document.getElementById("dniInput").value;
+  let dniInput = document.getElementById("dniInput")
+  console.log("el DNI es: " +dni);
+  let tel = document.getElementById("telInput").value;
+  let telInput = document.getElementById("telInput");
   console.log("el DNI es: " +dni);
   let check = document.getElementById('checkTerms').checked;
+  let checkInput = document.getElementById('checkTerms');
   console.log("El check es: " +check);
   console.log("------------------VALIDACION------------------");
   validarEmail(email);
@@ -25,6 +36,7 @@ function recogerDatos() {
   validarSurname(surname);
   validarAddress(address);
   validarCheck(check);
+  validarTel(tel);
   validarFin(validacion);
 }
 
@@ -35,6 +47,7 @@ function validarEmail(emailValue) {
   if (emailRegex.test(emailValue)) {
     console.log("La dirección de email " + emailValue + " es correcta.");
   } else {
+    emailInput.classList.add("error");
     console.log("La dirección de email es incorrecta.");
     validacion = false;
   }
@@ -50,9 +63,11 @@ function validarContrasena(passwordValue) {
     } else {
       console.log("Contraseña no valida");
       validacion = false;
+      passInput.classList.add("error");
     }
   } else {
     console.log("Contraseña no valida por numero");
+    passInput.classList.add("error");
     validacion = false;
   }
 }
@@ -61,6 +76,7 @@ function validarName(nameValue) {
     console.log("Nombre valido");
   } else {
     console.log("Nombre no valido");
+    nameInput.classList.add("error");
     validacion = false;
   }
 }
@@ -69,6 +85,7 @@ function validarSurname(surnameValue) {
     console.log("Apellido valido");
   } else {
     console.log("Apellido no valido");
+    surnameInput.classList.add("error");
     validacion = false;
   }
 }
@@ -77,6 +94,18 @@ function validarAddress(address) {
     console.log("Direccion valida");
   } else {
     console.log("Direccion no valida");
+    addressInput.classList.add("error");
+    validacion = false;
+  }
+}
+function validarTel(tel) {
+  let telString = tel.toString();
+  let long = telString.length;
+  if (!isNaN(tel) && long < 10) {
+    console.log("telefono valido");
+  } else {
+    console.log("telefono no valida");
+    telInput.classList.add("error");
     validacion = false;
   }
 }
@@ -84,6 +113,7 @@ function validarCheck(check) {
   if(check){
     console.log("Los terminos han sido aceptados");
   } else {
+    
     console.log("Los terminos no han sido aceptados");
     validacion = false;
   }

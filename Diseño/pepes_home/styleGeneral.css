@@ -67,6 +67,6 @@ footer {
   height: 50px;
 }
 /*Traladar a css login y  Register*/
-input {
-  box-shadow: var(--rojo);
+.error {
+  border-color: #ec452d !important;
 }
