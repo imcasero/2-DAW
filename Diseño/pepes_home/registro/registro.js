@@ -113,8 +113,8 @@ function validarCheck(check) {
   if(check){
     console.log("Los terminos han sido aceptados");
   } else {
-    
     console.log("Los terminos no han sido aceptados");
+    // check.classList.add("error");
     validacion = false;
   }
 }
@@ -123,6 +123,7 @@ function validarFin(validacion) {
     console.log("No se ha validado");
     alert("ERROR EN LOS DATOS");
   } else {
-    console.log("validacion completada")
+    console.log("validacion completada");
+    document.classList.remove("error");
   }
 }
