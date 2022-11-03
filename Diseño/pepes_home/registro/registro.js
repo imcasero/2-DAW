@@ -1,7 +1,7 @@
 //addEventlistener(click , e);
-
+let validacion = true ;
 function recogerDatos() {
-  let validacion = true ;
+  console.log("------------------RECOGIDA DE DATOS------------------");
   let email = document.getElementById("emailInput").value;
   console.log("el email es: " +email);
   let pass = document.getElementById("passInput").value;
@@ -16,9 +16,9 @@ function recogerDatos() {
   console.log("el date es: " +date);
   let dni = document.getElementById("dniInput").value;
   console.log("el DNI es: " +dni);
-  let check = document.getElementById("checkTerms").value;
+  let check = document.getElementById('checkTerms').checked;
   console.log("El check es: " +check);
-
+  console.log("------------------VALIDACION------------------");
   validarEmail(email);
   validarContrasena(pass);
   validarName(name);
@@ -31,7 +31,8 @@ function recogerDatos() {
 
 
 function validarEmail(emailValue) {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(emailValue)) {
+  emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+  if (emailRegex.test(emailValue)) {
     console.log("La dirección de email " + emailValue + " es correcta.");
   } else {
     console.log("La dirección de email es incorrecta.");
@@ -56,7 +57,7 @@ function validarContrasena(passwordValue) {
   }
 }
 function validarName(nameValue) {
-  if (!isNaN(nameValue) && nameValue.length > 25) {
+  if (isNaN(nameValue) && nameValue.length < 25) {
     console.log("Nombre valido");
   } else {
     console.log("Nombre no valido");
@@ -64,7 +65,7 @@ function validarName(nameValue) {
   }
 }
 function validarSurname(surnameValue) {
-  if (!isNaN(surnameValue) && surnameValue.length > 25) {
+  if (isNaN(surnameValue) && surnameValue.length < 25) {
     console.log("Apellido valido");
   } else {
     console.log("Apellido no valido");
@@ -80,7 +81,7 @@ function validarAddress(address) {
   }
 }
 function validarCheck(check) {
-  if(check == true){
+  if(check){
     console.log("Los terminos han sido aceptados");
   } else {
     console.log("Los terminos no han sido aceptados");
