@@ -1,34 +1,34 @@
 //VALIDACION DE FORMULARIO
-let validacion = true ;
+let validacion = true;
 function recogerDatos() {
   console.log("------------------RECOGIDA DE DATOS------------------");
   let email = document.getElementById("emailInput").value;
-  console.log("el email es: " +email);
-  let emailInput  =document.getElementById("emailInput");
+  console.log("el email es: " + email);
+  let emailInput = document.getElementById("emailInput");
   let pass = document.getElementById("passInput").value;
-  let passInput  =document.getElementById("passInput");
-  console.log("la contraseña es: " +pass);
+  let passInput = document.getElementById("passInput");
+  console.log("la contraseña es: " + pass);
   let name = document.getElementById("nameInput").value;
-  let nameInput  =document.getElementById("nameInput");
-  console.log("el nombre es: " +name);
+  let nameInput = document.getElementById("nameInput");
+  console.log("el nombre es: " + name);
   let surname = document.getElementById("surnameInput").value;
-  let surnameInput  =document.getElementById("surnameInput");
-  console.log("el apellido es: " +surname);
+  let surnameInput = document.getElementById("surnameInput");
+  console.log("el apellido es: " + surname);
   let address = document.getElementById("addressInput").value;
-  let addressInput = document.getElementById("addressInput")
-  console.log("el address es: " +address);
+  let addressInput = document.getElementById("addressInput");
+  console.log("el address es: " + address);
   let date = document.getElementById("datepicker").value;
   let dateInput = document.getElementById("datepicker");
-  console.log("el date es: " +date);
+  console.log("el date es: " + date);
   let dni = document.getElementById("dniInput").value;
-  let dniInput = document.getElementById("dniInput")
-  console.log("el DNI es: " +dni);
+  let dniInput = document.getElementById("dniInput");
+  console.log("el DNI es: " + dni);
   let tel = document.getElementById("telInput").value;
   let telInput = document.getElementById("telInput");
-  console.log("el DNI es: " +dni);
-  let check = document.getElementById('checkTerms').checked;
-  let checkInput = document.getElementById('checkTerms');
-  console.log("El check es: " +check);
+  console.log("el DNI es: " + dni);
+  let check = document.getElementById("checkTerms").checked;
+  let checkInput = document.getElementById("checkTerms");
+  console.log("El check es: " + check);
   console.log("------------------VALIDACION------------------");
   validarEmail(email);
   validarContrasena(pass);
@@ -107,7 +107,7 @@ function validarTel(tel) {
   }
 }
 function validarCheck(check) {
-  if(check){
+  if (check) {
     console.log("Los terminos han sido aceptados");
   } else {
     console.log("Los terminos no han sido aceptados");
