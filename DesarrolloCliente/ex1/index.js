@@ -9,10 +9,10 @@ for (let i = 0; i < 10; i++) {
 }
 document.write("</table>");
 //Almaceno la tabla en una variable
-let tabla = getElementById("tabla");
+let tabla = document.getElementById("tabla");
+let td = tabla.getElementsByTagName("td");
 //Creo una funcion de click respecto a la tabla
-tabla.addEventListener("click", pintar());
-
+td.addEventListener("click" , pintar());
 function pintar(){
-  console.log("Click");
+  td.classList.add("click1");
 }
