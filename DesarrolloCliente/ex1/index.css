@@ -1,0 +1,11 @@
+* {
+  margin: auto;
+  align-items: center;
+}
+table {
+  margin-top: 100px;
+}
+td {
+  width: 100px;
+  height: 45px;
+}
