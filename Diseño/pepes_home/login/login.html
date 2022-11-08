@@ -37,7 +37,7 @@
     </nav>
     <!--Formulario log in-->
     <div
-      class="container text-center mt-5 pt-5 border rounded shadow p-3 mb-5 bg-body rounded w-75"
+      class="container text-center mt-5 pt-5 border rounded shadow p-3 mb-5 bg-body rounded w-50"
     >
       <img src="..\Media\img\icon\IconoRamen.png" class="mt-0 pt-0" />
       <h2 class="text-center">Log in</h2>
@@ -54,7 +54,13 @@
           Have you forgotten the password?<a href="retrieve.html">retrieve</a>
         </p>
         <div class="col-12 pb-2 mb-3">
-          <button type="submit" class="btn btn-outline-dark">Log in</button>
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            onclick="validar()"
+          >
+          Log in
+        </button>
         </div>
       </form>
     </div>

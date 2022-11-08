@@ -67,6 +67,14 @@ footer {
   height: 50px;
 }
 /*Traladar a css login y  Register*/
+
 .error {
   border-color: #ec452d !important;
+}
+div .error{
+  border-bottom: 2px solid #ec452d !important;
+}
+td{
+  height: 50px;
+  width: 70px;
 }

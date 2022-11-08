@@ -1,4 +1,16 @@
 let clickPass = document.getElementById("passInput");
+function validar() {
+  let emailValue = document.getElementById("emailInput").value;
+  emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+  if (emailRegex.test(emailValue)) {
+    console.log("La dirección de email " + emailValue + " es correcta.");
+    emailInput.classList.remove("error");
+  } else {
+    emailInput.classList.add("error");
+    console.log("La dirección de email es incorrecta.");
+    validacion = false;
+  }
+}
 
 clickPass.addEventListener("click", tablaRandom);
 function tablaRandom() {
