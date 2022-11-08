@@ -1,0 +1,12 @@
+* {
+    margin: auto;
+    align-items: center;
+  }
+form{
+    margin-top: 40px;
+    border: 1px solid black;
+    width: 50%;
+}
+label , input, select, textarea , option{
+  margin-right: 20px;
+}
