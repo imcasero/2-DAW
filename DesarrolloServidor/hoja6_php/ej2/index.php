@@ -1,7 +1,8 @@
 <?php
-$inter = [];
-$cadena_error = '<p style="color : red; font-size : 10px"> El texto a buscar es obligatorio </p>';
-$formulario = '<!DOCTYPE html>
+$inter = array();
+$cadena_error = '<p style="color : red; font-size : 10px"> Este campo es obligatorio </p>';
+$formulario = '
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,27 +16,27 @@ $formulario = '<!DOCTYPE html>
         <h3>ELEMENTO DE ENTRADA</h3>
         <h4>Elementos input</h4>
         <label for="inputText">Text</label></br>
-        <input type="text" name="inputText"></br>
+        <input type="text" name="inputText"> </br>
     </br>
         <label for="inputRadio">Radio</label></br>
         Sexo :
         <input type="radio" name="inputRadio" value="Hombre">hombre
         <input type="radio" name="inputRadio" value="Mujer">mujer
     </br></br>
-        <label for="checkInput[]">Checkbox</label></br>
+        <label for="inputCheck[]">Checkbox</label></br>
         Extras :
-        <input type="checkbox" name="checkInput" value="garaje">garaje
-        <input type="checkbox" name="checkInput" value="piscina">piscina
-        <input type="checkbox" name="checkInput" value="ascensor">ascensor
+        <input type="checkbox" name="inputCheck" value="garaje">garaje
+        <input type="checkbox" name="inputCheck" value="piscina">piscina
+        <input type="checkbox" name="inputCheck" value="ascensor">ascensor
     </br></br>
-        <label for="fileInput">File</label></br>
-        <input type="file" name="fileInput">
+        <label for="inputFile">File</label></br>
+        <input type="file" name="inputFile">
     </br></br>
-        <label for="hiddenInput">Hidden</label></br>
-        <input type="text" hidden>
+        <label for="inputHidden">Hidden</label></br>
+        <input type="text" name="inputHidden" hidden>
     </br></br>
-        <label for="passInput">Password</label></br>
-        <input type="password" name="passInput" >
+        <label for="inputPass">Password</label></br>
+        <input type="password" name="inputPass" >
     </br></br>
     <h4>Elementos select</h4></br>
         <label for="colores[]">Select simple</label></br>
@@ -55,72 +56,69 @@ $formulario = '<!DOCTYPE html>
         </select>
     </br></br>
         <h4>Elemento textarea</h4>
-        <label for="textareaInput">Textarea</label></br>
-        <textarea name="textareaInput" cols="30" rows="10">
-            texto en area
+        <label for="inputTextArea">Textarea</label></br>
+        <textarea name="inputTextArea" cols="30" rows="10" placeholder="Texto en area">
         </textarea>
     </br></br>
         <button type="submit">Enviar</button>
-        '.$cadena_error.'
     </form>
-    
 </body>
-</html>';
+</html>
+';
 //VALIDACION INPUTTEXT
     if (empty($_POST['inputText'])) {
-        array_push($inter , false);
+        $inter['inputText'] = false;
     } else {
         $inputText = $_POST['inputText'];
-        array_push( $inter , true);
+
     }
 //VALIDACION RADIO
     if (empty($_POST['inputRadio'])) {
-        array_push($inter , false);
+        $inter['inputRadio'] = false;
     } else {
         $inputRadio = $_POST['inputRadio'];
-        array_push( $inter , true);
+
     }
 //VALIDACION CHECKINPUT
-    if (empty($_POST['checkInput[]'])) {
-        array_push($inter , false);
+    if (empty($_POST['inputCheck'])) {
+        $inter['inputCheck'] = false;
     } else {
-        $checkInput = $_POST['checkInput[]'];
-        array_push( $inter , true);
+        $inputCheck = $_POST['inputCheck'];
+
     }
 //VALIDACION FILEINPUT
-    if (empty($_POST['inputFile'])) {
-        array_push($inter , false);
+    if (empty($_FILES['inputFile'])) {
+        $inter['inputFile'] = false;
     } else {
-        $inputFile = $_POST['inputFile'];
-        array_push( $inter , true);
+        $inputFile = $_FILES['inputFile']; 
     }
 //VALIDACION HiddenINPUT
-    if (empty($_POST['HiddentFile'])) {
-        array_push($inter , false);
+    if (empty($_POST['inputHidden'])) {
+        $inter['inputHidden'] = false;
     } else {
         $inputHidden = $_POST['inputHidden'];
-        array_push( $inter , true);
+
     }
 //VALIDACION passInput
-    if (empty($_POST['passInput'])) {
-        array_push($inter , false);
+    if (empty($_POST['inputPass'])) {
+        $inter['inputPass'] = false;
     } else {
-        $passInput = $_POST['passInput'];
-        array_push( $inter , true);
+        $inputPass = $_POST['inputPass'];
+
     }
 //VALIDACION COLORES
     if (empty($_POST['colores[]'])) {
-        array_push($inter , false);
+        $inter['colores'] = false;
     } else {
-        $colores = $_POST['inputFile[]'];
-        array_push( $inter , true);
+        $colores = $_POST['colores[]'];
+        
     }
 //VALIDACION IDIOMAS
     if (empty($_POST['idiomas[]'])) {
-        array_push($inter , false);
+        $inter['idiomas'] = false;
     } else {
         $idiomas = $_POST['idiomas[]'];
-        array_push( $inter , true);
+        
     }
 
 
@@ -129,6 +127,7 @@ $formulario = '<!DOCTYPE html>
 //COMPROBACION DE ERRORES
     if (in_array(false , $inter)) {
         echo $formulario;
+        var_dump($inter);
     } else {
         echo 'Formulario enviado correctamente';
     }
