@@ -56,6 +56,8 @@ function tablaRandom() {
   }
 }
 function tablaAst() {
+  const url_img = "../media/img/icon/x-mark-24.png" ;
+
   let array = Array(6);
   //relleno el array
   for (let i = 0; i < array.length; i++) {
@@ -82,7 +84,12 @@ function tablaAst() {
   let long_asteriscos = td_asteriscos.length;
 
   for (let i = 0; i < long_asteriscos; i++) {
-    td_asteriscos[i].textContent = array[i];
+    if (array[i] === " ") {
+      td_asteriscos[i].textContent = array[i];
+    }else {
+      td_asteriscos[i].innerHTML = url_img; //inserccion de imagen que no funciona
+    }
+    
   }
   
 }
