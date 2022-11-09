@@ -1,9 +1,8 @@
 let clickPass = document.getElementById("passInput");
 let tabla_pass = document.getElementById("div-tabla");
 const tabla = document.createElement("table");
-let divAst = document.getElementById("passInput");
-let tablaAst = divAst.getElementById("tablaAst");
-
+//let div_asteriscos = document.getElementById("passInput");
+let tabla_asteriscos = document.getElementById("tablaAst");
 function validar() {
   let emailValue = document.getElementById("emailInput").value;
   emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
@@ -16,30 +15,27 @@ function validar() {
     validacion = false;
   }
 }
-
-if (document.getElementById("tablaDatos") === null) {
-  clickPass.addEventListener("click", tablaRandom);
-  clickPass.addEventListener("click", tablaAst);
-}
+clickPass.addEventListener("click", tablaRandom);
 function tablaRandom() {
-  var array = [];
-  while (array.length < 10) {
-    var numeroAleatorio = Math.floor(Math.random() * (10 - 0));
-    var existe = false;
-    for (var i = 0; i < array.length; i++) {
-      if (array[i] == numeroAleatorio) {
-        existe = true;
-        break;
+  if (document.getElementById("tablaDatos") === null) {
+    var array = [];
+    while (array.length < 10) {
+      var numeroAleatorio = Math.floor(Math.random() * (10 - 0));
+      var existe = false;
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] == numeroAleatorio) {
+          existe = true;
+          break;
+        }
+      }
+      if (!existe) {
+        array[array.length] = numeroAleatorio;
       }
     }
-    if (!existe) {
-      array[array.length] = numeroAleatorio;
+    for (let index = 0; index < array.length; index++) {
+      console.log("random en posicion " +index+" : " + array[index]);
     }
-  }
-  for (let index = 0; index < array.length; index++) {
-    console.log(array[index]);
-  }
-  if (document.getElementById("tablaDatos") === null) {
+
     tabla.setAttribute("id", "tablaDatos");
     let indice = 0;
     //seleccionar un padre (tabla_pass)
@@ -56,33 +52,37 @@ function tablaRandom() {
         indice++;
       }
     }
+    tablaAst();
   }
 }
 function tablaAst() {
   let array = Array(6);
+  //relleno el array
   for (let i = 0; i < array.length; i++) {
-    array[i] = 0;
+    array[i] = " ";
   }
   let cont = 0;
   while (cont < 3) {
     let num = Math.floor(Math.random() * (6 - 0));
     var existe = false;
-    if (array[num] === 0) {
+    console.log("Contador: " + cont);
+    if (array[num] === " ") {
       array[num] = "*";
       cont++;
     } else {
       existe = true;
-      break;
     }
   }
   for (let i = 0; i < array.length; i++) {
-    console.log(array[i]);
+    console.log("Array asterisco " + i + " : " + array[i]);
+  }
+  let td_asteriscos = tabla_asteriscos.getElementsByTagName('td');
+
+  
+  let long_asteriscos = td_asteriscos.length;
+
+  for (let i = 0; i < long_asteriscos; i++) {
+    td_asteriscos[i].textContent = array[i];
   }
   
-  tabla.addEventListener("click" , e => {
-    if(e.target.nodeName = "TD"){
-      let celda = e.target;
-    }
-  });
-
 }
