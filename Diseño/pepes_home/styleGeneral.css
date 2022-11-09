@@ -78,11 +78,12 @@ td{
   height: 50px;
   width: 70px;
 }
-#tablaDatos{
+#tablaDatos , #tablaAst{
+  width: 100%;
   border: 1px solid black ;
-  border-radius: 25px;
+  border-radius: 5px;
 }
-#tablaDatos td{
+#tablaDatos , #tablaAst td{
   background-color: #403e3e;
   color: white;
 }
