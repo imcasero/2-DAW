@@ -1,9 +1,10 @@
 let clickPass = document.getElementById("passInput");
 let tabla_pass = document.getElementById("div-tabla");
 const tabla = document.createElement("table");
-const url_imgx = "../media/img/icon/x-mark-24.png" ;
-const url_imgb = "../media/img/icon/check-mark-3-24.png" ;
-const url_imgo = "../media/img/icon/circle-outline-32.png" ;
+const url_imgx = "../media/img/icon/x-mark-24.png";
+const url_imgb = "../media/img/icon/check-mark-3-24.png";
+const url_imgo = "../media/img/icon/circle-outline-32.png";
+var teclado;
 let pass = new Array();
 //let div_asteriscos = document.getElementById("passInput");
 let tabla_asteriscos = document.getElementById("tablaAst");
@@ -37,7 +38,7 @@ function tablaRandom() {
       }
     }
     for (let index = 0; index < array.length; index++) {
-      console.log("random en posicion " +index+" : " + array[index]);
+      console.log("random en posicion " + index + " : " + array[index]);
     }
 
     tabla.setAttribute("id", "tablaDatos");
@@ -56,14 +57,10 @@ function tablaRandom() {
         indice++;
       }
     }
-    tablaAst();
-    return tabla;
+    tablaAst(array);
   }
 }
-function tablaAst() {
-  
-
-
+function tablaAst(password) {
   let array = Array(6);
   //relleno el array
   for (let i = 0; i < array.length; i++) {
@@ -84,23 +81,36 @@ function tablaAst() {
   for (let i = 0; i < array.length; i++) {
     console.log("Array asterisco " + i + " : " + array[i]);
   }
-  let td_asteriscos = tabla_asteriscos.getElementsByTagName('td');
-
-  
+  let td_asteriscos = tabla_asteriscos.getElementsByTagName("td");
   let long_asteriscos = td_asteriscos.length;
-
   for (let i = 0; i < long_asteriscos; i++) {
     if (array[i] === " ") {
-      td_asteriscos[i].innerHTML = '<img src="'+url_imgo+'"> </img>';
-    }else {
-      td_asteriscos[i].innerHTML = '<img src="'+url_imgx+'"> </img>'; 
+      td_asteriscos[i].innerHTML = '<img src="' + url_imgo + '"> </img>';
+    } else {
+      td_asteriscos[i].innerHTML = '<img src="' + url_imgx + '"> </img>';
     }
-    
   }
   clickPass.removeEventListener("click", tablaRandom);
+  recogerTeclado(password);
 }
-const teclado = document.getElementById("tablaDatos");
-console.log(teclado);
-function borrar(){
-  
+function recogerTeclado(password) {
+  teclado = document.getElementById("tablaDatos");
+  console.log(teclado);
+  teclado.addEventListener("click", (e) => {
+    if ((e.target.nodeName = "TD")) {
+      let celda = e.target;
+      let col = parseInt(celda.cellIndex);
+      let fil = parseInt(celda.parentNode.rowIndex);
+      // console.log('La celda es: ' + col , fil);
+      if (fil > 0) {
+        console.log("La celda es: " + col, fil);
+        console.log(password[5 + col]);
+      } else {
+        console.log("La celda es: " + col, fil);
+        console.log(password[col]);
+      }
+    }
+  });
 }
+
+function borrar() {}
