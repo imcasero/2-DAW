@@ -1,6 +1,10 @@
 let clickPass = document.getElementById("passInput");
 let tabla_pass = document.getElementById("div-tabla");
 const tabla = document.createElement("table");
+const url_imgx = "../media/img/icon/x-mark-24.png" ;
+const url_imgb = "../media/img/icon/check-mark-3-24.png" ;
+const url_imgo = "../media/img/icon/circle-outline-32.png" ;
+let pass = new Array();
 //let div_asteriscos = document.getElementById("passInput");
 let tabla_asteriscos = document.getElementById("tablaAst");
 function validar() {
@@ -53,10 +57,12 @@ function tablaRandom() {
       }
     }
     tablaAst();
+    return tabla;
   }
 }
 function tablaAst() {
-  const url_img = "../media/img/icon/x-mark-24.png" ;
+  
+
 
   let array = Array(6);
   //relleno el array
@@ -85,11 +91,16 @@ function tablaAst() {
 
   for (let i = 0; i < long_asteriscos; i++) {
     if (array[i] === " ") {
-      td_asteriscos[i].textContent = array[i];
+      td_asteriscos[i].innerHTML = '<img src="'+url_imgo+'"> </img>';
     }else {
-      td_asteriscos[i].innerHTML = url_img; //inserccion de imagen que no funciona
+      td_asteriscos[i].innerHTML = '<img src="'+url_imgx+'"> </img>'; 
     }
     
   }
+  clickPass.removeEventListener("click", tablaRandom);
+}
+const teclado = document.getElementById("tablaDatos");
+console.log(teclado);
+function borrar(){
   
 }
