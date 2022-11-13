@@ -107,17 +107,17 @@ $formulario = '
 
     }
 //VALIDACION COLORES
-    if (empty($_POST['colores[]'])) {
+    if (empty($_POST['colores'])) {
         $inter['colores'] = false;
     } else {
-        $colores = $_POST['colores[]'];
+        $colores = $_POST['colores'];
         
     }
 //VALIDACION IDIOMAS
-    if (empty($_POST['idiomas[]'])) {
+    if (empty($_POST['idiomas'])) {
         $inter['idiomas'] = false;
     } else {
-        $idiomas = $_POST['idiomas[]'];
+        $idiomas = $_POST['idiomas'];
         
     }
 
@@ -129,6 +129,14 @@ $formulario = '
         echo $formulario;
         var_dump($inter);
     } else {
-        echo 'Formulario enviado correctamente';
+        echo 'Formulario enviado correctamente </br>
+            Los datos enviados son : '. $inputText  , 
+            $inputCheck , 
+            $inputFile , 
+            $inputPass , 
+            $inputRadio ,
+            $colores ,
+            $idiomas;
+
     }
 ?>
