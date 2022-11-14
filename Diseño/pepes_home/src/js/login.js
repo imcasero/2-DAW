@@ -1,9 +1,9 @@
 let clickPass = document.getElementById("passInput");
 let tabla_pass = document.getElementById("div-tabla");
 const tabla = document.createElement("table");
-const url_imgx = "../media/img/icon/x-mark-24.png";
-const url_imgb = "../media/img/icon/check-mark-3-24.png";
-const url_imgo = "../media/img/icon/circle-outline-32.png";
+const url_imgx = "../../media/img/icon/x-mark-24.png";
+const url_imgb = "../../media/img/icon/check-mark-3-24.png";
+const url_imgo = "../../media/img/icon/circle-outline-32.png";
 var contclick = 0;
 var teclado;
 var pass_global = new Array(3);

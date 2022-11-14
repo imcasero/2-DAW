@@ -5,11 +5,11 @@
 }
 @font-face {
   font-family: 'shojumaru';
-  src: url('./fonts/shojumaru-regular.ttf');
+  src: url('../../fonts/shojumaru-regular.ttf');
 }
 @font-face {
   font-family: 'hashiba';
-  src: url('./fonts/Hashiba.ttf');
+  src: url('../../fonts/Hashiba.ttf');
 }
 header {
   display: flex;
