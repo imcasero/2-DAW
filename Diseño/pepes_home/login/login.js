@@ -4,8 +4,9 @@ const tabla = document.createElement("table");
 const url_imgx = "../media/img/icon/x-mark-24.png";
 const url_imgb = "../media/img/icon/check-mark-3-24.png";
 const url_imgo = "../media/img/icon/circle-outline-32.png";
+var contclick = 0;
 var teclado;
-let pass = new Array();
+var pass_global = new Array(3);
 //let div_asteriscos = document.getElementById("passInput");
 let tabla_asteriscos = document.getElementById("tablaAst");
 function validar() {
@@ -94,23 +95,39 @@ function tablaAst(password) {
   recogerTeclado(password);
 }
 function recogerTeclado(password) {
-  teclado = document.getElementById("tablaDatos");
-  console.log(teclado);
+    teclado = document.getElementById("tablaDatos");
+    
+
   teclado.addEventListener("click", (e) => {
-    if ((e.target.nodeName = "TD")) {
-      let celda = e.target;
-      let col = parseInt(celda.cellIndex);
-      let fil = parseInt(celda.parentNode.rowIndex);
-      // console.log('La celda es: ' + col , fil);
-      if (fil > 0) {
-        console.log("La celda es: " + col, fil);
-        console.log(password[5 + col]);
-      } else {
-        console.log("La celda es: " + col, fil);
-        console.log(password[col]);
+    if (contclick < 3){
+      if ((e.target.nodeName = "TD")) {
+        console.log( "Contador " + contclick);
+        contclick++;
+        let celda = e.target;
+        let col = parseInt(celda.cellIndex);
+        let fil = parseInt(celda.parentNode.rowIndex);
+        // console.log('La celda es: ' + col , fil);
+        if (fil > 0) {
+          console.log("La celda es: " + col, fil);
+          console.log(password[5 + col]);
+          if (pass_global.length < 3) {
+            pass_global.push(password[5 + col]);
+          }
+          
+        } else {
+          console.log("La celda es: " + col, fil);
+          console.log(password[col]);
+          if (pass_global.length < 3) {
+            pass_global.push(password[col]);
+          }
+          
+        }
       }
     }
+    
   });
+  
+  
 }
 
 function borrar() {}
