@@ -41,7 +41,7 @@
     >
       <img src="..\Media\img\icon\IconoRamen.png" class="mt-0 pt-0" />
       <h2 class="text-center">Log in</h2>
-      <form action="" class="row g-3 mb-5">
+      <form action="login.php" class="row g-3 mb-5">
         <div class="col-12">
           <label for="emailInput">Email</label>
           <input type="text" class="form-control" id="emailInput" />
@@ -69,13 +69,14 @@
           Have you forgotten the password?<a href="retrieve.html">retrieve</a>
         </p>
         <div class="col-12 pb-2 mb-3">
-          <button
+        <input type="submit" onclick="validad()">
+          <!-- <button
             type="button"
             class="btn btn-outline-dark"
             onclick="validar()"
           >
             Log in
-          </button>
+          </button> -->
         </div>
       </form>
     </div>

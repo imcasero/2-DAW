@@ -4,12 +4,12 @@
   --negro: #403e3e;
 }
 @font-face {
-  font-family: shojumaru;
-  src: url(shojumaru-regular.ttf);
+  font-family: 'shojumaru';
+  src: url('./fonts/shojumaru-regular.ttf');
 }
 @font-face {
-  font-family: hashiba;
-  src: url(Hashiba.ttf);
+  font-family: 'hashiba';
+  src: url('./fonts/Hashiba.ttf');
 }
 header {
   display: flex;
