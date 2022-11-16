@@ -74,6 +74,9 @@ footer {
 div .error{
   border-bottom: 2px solid #ec452d !important;
 }
+p .error{
+  color: red !important;
+}
 td{
   height: 50px;
   width: 70px;

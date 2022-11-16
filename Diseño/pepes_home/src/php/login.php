@@ -2,6 +2,6 @@
     $contraseña = $_POST['hiddenPass'];
     $pos_asteriscos = $_POST['hiddenAst'];
 
-    echo $contraseña;
-    echo $pos_asteriscos;
+    echo $contraseña . '<br>';
+    echo $pos_asteriscos. '<br>';
 ?>

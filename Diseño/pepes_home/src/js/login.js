@@ -8,19 +8,31 @@ var contclick = 0;
 var teclado;
 var pass_global = new Array();
 var possicion_ast = new Array();
+var cadena_error = 'Este campo es obligatorio';
 //let div_asteriscos = document.getElementById("passInput");
 let tabla_asteriscos = document.getElementById("tablaAst");
 function validar() {
+  let validacion = false;
   console.log("=======================Validacion=====================");
   let emailValue = document.getElementById("emailInput").value;
   emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   if (emailRegex.test(emailValue)) {
     console.log("La dirección de email " + emailValue + " es correcta.");
     emailInput.classList.remove("error");
+    validacion = true;
   } else {
     emailInput.classList.add("error");
     console.log("La dirección de email es incorrecta.");
     validacion = false;
+  }
+  if (validacion) {
+    let boton = document.getElementById("submit");
+    boton.removeAttribute("hidden");
+  } else {
+    let div_validacion = document.getElementById("validacion");
+    div_validacion.appendChild(p);
+    p.classList.add("error");
+    p.textContent = cadena_error;
   }
 }
 clickPass.addEventListener("click", tablaRandom);
