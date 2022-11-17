@@ -117,113 +117,52 @@ $inter = array();
         </html>
         ';
     }else{
+        //CADENA PARA INTRODUCIR O COMPROBAR
         $cadena = "$nombre:$destino:$duracion:$salida\n";
-        // echo $cadena;
-        $existe = false;
-        $fichero_lec = @fopen('index.txt' , 'r');
+        
+        $existe = false; //INTERRUPTOR
+        $fichero_lec = @fopen('index.txt' , 'r');//LEO FICHERO
         if (!$fichero_lec) {
             die('Problemas con el fichero lectura');
         }
         while (!feof($fichero_lec)) {
             $lec = fgets($fichero_lec);
             if (strpos($lec , $destino)) {
-                $existe = true;
+                $existe = true; //INTERRUPTOR SALTA SI EXISTE EL DESTINO
                 break;
             }
         }
-        if (!$existe) {
+        if (!$existe) {//SI NO EXISTEN LOS DATOS...SOLO INSERCCION DE DATOS!!
             echo 'Insertando datos...';
-            $fichero_es = @fopen('index.txt', 'a+');
+            $fichero_es = @fopen('index.txt', 'a+');//ESCRITORUA
             if (!$fichero_es) {
                 die('Problemas con el fichero escritura');
             }
-            fwrite($fichero_es , $cadena);
-            @fclose($fichero_es);
+            fwrite($fichero_es , $cadena);//ESCRIBIMOS LA CADENA AL FINAL
+            @fclose($fichero_es);//CERRAMOS FICHEO ESCRITURA
         }
     }
-    @fclose($fichero_lec);
+    @fclose($fichero_lec);//CERRAMOS FICHERO LECTURA
     
-    if ($existe) {
-        echo $documento;
-        echo $cadena_error_existe;
+    if ($existe) { //SI EXISTE
+        echo $documento; //IMPRIMIMOS EL DOCUMENTO
+        echo $cadena_error_existe; //Y LA CADENA ERROR DE QUE EXISTE
         //generar tabla
-    $array_datos_aux = array();
-    $datos_fichero = @fopen('index.txt' , 'r+');
-    if (!$datos_fichero) {
-        die('Probelmas con el fichero datos');
-    }
-    while (!feof($datos_fichero)) {
-        $fila = fgets($datos_fichero);
-        array_push($array_datos_aux , $fila);
-    }
-    $array_datos = array();
-    foreach ($array_datos_aux as $string_datos) {
-        $a = explode(':' , $string_datos); 
-        array_push($array_datos , $a);
-    }
-    
-
-    //pintar tabla
-
-    echo '<table border="1" cellspacing="0">';
-    foreach ($array_datos as $clave => $array) {
-        echo '<tr>';
-        foreach ($array as $valor) {
-            echo '<td>'.$valor.'</td>';
-        }
-        echo '</tr>';
-    }
-    echo '</table>';
-
-    }else {
-        echo $documento;
         $array_datos_aux = array();
-        $datos_fichero = @fopen('index.txt' , 'r+');
+        $datos_fichero = @fopen('index.txt' , 'r+'); //FICHERO LECTURA
         if (!$datos_fichero) {
             die('Probelmas con el fichero datos');
         }
         while (!feof($datos_fichero)) {
             $fila = fgets($datos_fichero);
-            array_push($array_datos_aux , $fila);
+            array_push($array_datos_aux , $fila); //ALAMACENO LOS DATOS EN EL ARRAY_DATOS_AUX
         }
         $array_datos = array();
-        foreach ($array_datos_aux as $string_datos) {
+        foreach ($array_datos_aux as $string_datos) { //CREO EL ARRAY BIDIMENSIONAL PARA IMPRIMIR
             $a = explode(':' , $string_datos); 
             array_push($array_datos , $a);
-            //generar tabla
-    $array_datos_aux = array();
-    $datos_fichero = @fopen('index.txt' , 'r+');
-    if (!$datos_fichero) {
-        die('Probelmas con el fichero datos');
-    }
-    while (!feof($datos_fichero)) {
-        $fila = fgets($datos_fichero);
-        array_push($array_datos_aux , $fila);
-    }
-    $array_datos = array();
-    foreach ($array_datos_aux as $string_datos) {
-        $a = explode(':' , $string_datos); 
-        array_push($array_datos , $a);
-    }
-    
-
-    //pintar tabla
-
-    echo '<table border="1" cellspacing="0">';
-    foreach ($array_datos as $clave => $array) {
-        echo '<tr>';
-        foreach ($array as $valor) {
-            echo '<td>'.$valor.'</td>';
         }
-        echo '</tr>';
-    }
-    echo '</table>';
-
-        }
-        
-    
-        //pintar tabla
-    
+        //PINTAMOS LA TABLA
         echo '<table border="1" cellspacing="0">';
         foreach ($array_datos as $clave => $array) {
             echo '<tr>';
@@ -233,36 +172,34 @@ $inter = array();
             echo '</tr>';
         }
         echo '</table>';
-      
-    }
-    
-    //generar tabla
-    $array_datos_aux = array();
-    $datos_fichero = @fopen('index.txt' , 'r+');
-    if (!$datos_fichero) {
-        die('Probelmas con el fichero datos');
-    }
-    while (!feof($datos_fichero)) {
-        $fila = fgets($datos_fichero);
-        array_push($array_datos_aux , $fila);
-    }
-    $array_datos = array();
-    foreach ($array_datos_aux as $string_datos) {
-        $a = explode(':' , $string_datos); 
-        array_push($array_datos , $a);
-    }
-    
 
-    //pintar tabla
-
-    echo '<table border="1" cellspacing="0">';
-    foreach ($array_datos as $clave => $array) {
-        echo '<tr>';
-        foreach ($array as $valor) {
-            echo '<td>'.$valor.'</td>';
+    }else {
+        echo $documento; //IMPRIMIMOS EL DOCUMENTO
+        //generar tabla
+        $array_datos_aux = array();
+        $datos_fichero = @fopen('index.txt' , 'r+'); //FICHERO LECTURA
+        if (!$datos_fichero) {
+            die('Probelmas con el fichero datos');
         }
-        echo '</tr>';
+        while (!feof($datos_fichero)) {
+            $fila = fgets($datos_fichero);
+            array_push($array_datos_aux , $fila); //ALAMACENO LOS DATOS EN EL ARRAY_DATOS_AUX
+        }
+        $array_datos = array();
+        foreach ($array_datos_aux as $string_datos) { //CREO EL ARRAY BIDIMENSIONAL PARA IMPRIMIR
+            $a = explode(':' , $string_datos); 
+            array_push($array_datos , $a);
+        }
+        //PINTAMOS LA TABLA
+        echo '<table border="1" cellspacing="0">';
+        foreach ($array_datos as $clave => $array) {
+            echo '<tr>';
+            foreach ($array as $valor) {
+                echo '<td>'.$valor.'</td>';
+            }
+            echo '</tr>';
+        }
+        echo '</table>';
     }
-    echo '</table>';
 
 ?>
