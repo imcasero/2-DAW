@@ -1,0 +1,27 @@
+body {
+  background-color: #EFF7F7;
+}
+
+
+table, th, td {
+  border-collapse: collapse,
+  border: 1px solid;
+
+  
+
+}
+
+td{
+
+	background-color: #D8FCFC;
+	
+
+}
+
+
+th{
+
+	background-color: yellow;
+	
+
+}
