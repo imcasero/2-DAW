@@ -3,6 +3,7 @@
     if (!$fichero) {
         die('Fichero inaccesible');
     }
+    
     $array_aux = array();
     while (!feof($fichero)) {
         $fila = fgets($fichero);
@@ -15,16 +16,16 @@
     }
     //print_r($array);
     $cat = $_POST['cat'];
+    echo $cat;
     //pinto tabla
     echo '<table border="1" cellspacing="0" style="margin-top : 20px">';
     foreach ($array as $clave => $array_fila) {
         echo '<tr>';
-        if (in_array($array_fila[1] , 'Parques infantiles')  || in_array($array_fila[1] , 'Iluminacion') || in_array($array_fila[1] , 'Calzad') || in_array($array_fila[1] , 'Jardines') ) {
+        if (in_array($cat , $array_fila)   ) {
+        unset($array_fila[1]);
         foreach ($array_fila as $valor) {
-           
                 echo '<td>'.$valor.'</td>';
             }
-            echo '<td>'.$valor.'</td>';
         }
         echo '</tr>';
     }

@@ -8,3 +8,7 @@ form {
     text-align: center;
     width: 60%;
 }
+table tr td{
+    width: 100px;
+    height: 50px;
+}
