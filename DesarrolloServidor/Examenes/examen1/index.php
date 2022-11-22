@@ -35,7 +35,7 @@
 
     </form>
     <a href="listar.php">Listar por categoria</a>
-    <a href="borrar.php">Borrar incidencias</a>
+    <a href="borrar.html">Borrar incidencias</a>
 </body>
 </html>
 <?php
