@@ -33,7 +33,7 @@ exit();
 	
 	if (!$result) 
 			{
-					si no existe.......html
+					//si no existe.......html
 			} 
 			else 
 			{
@@ -44,8 +44,8 @@ exit();
 						$ver_ds = $valor['contrasenia_c'];
 						
 						//comprobar que la contrasenia leida e introducida son iguales
-						si son iguales ........html
-						si no son iguales .......html
+						//si son iguales ........html
+						//si no son iguales .......html
 						
 						
 					}
