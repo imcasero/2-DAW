@@ -57,8 +57,7 @@
                     if ($array_fila_g[0] == $array_fila_2[0]){
                         array_push($array_datos , $array_fila_g);
                     }
-                }
-                
+                }           
             }
         }
         return $array_datos;
