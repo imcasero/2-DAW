@@ -39,7 +39,7 @@
     function inser($matricula , $empresa){
         $cad = "\n" .$matricula . " " . $empresa;
 
-        $logistica = @fopen("../txt/logistica.txt" , "w");
+        $logistica = @fopen("../txt/logistica.txt" , "a+");
         if (!$logistica) {
             die('fichero inaccesible');
         };
