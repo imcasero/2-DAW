@@ -31,4 +31,22 @@
     $fecha = new DateTime();
     $fecha->add(new DateInterval('P2Y3M1DT2H'));
     echo '<br>' . $fecha->format("Y-m-d H:i:s");
+
+    $fecha1 = new DateTime('2022-01-01 10:30:00');
+    $fecha2 = new DateTime('2023-05-03 15:30:00');
+    $intervalo = $fecha1->diff($fecha2); //la fecha pequeña al principio
+    echo '<br>';
+    echo $intervalo->format('%R%a días'); //Imprime 122 días , con la R da el valor + o -
+    echo '<br>';
+    echo $intervalo->format('%R%Y año'); 
+    echo '<br>';
+    echo $intervalo->format('%R%y año'); 
+    echo '<br>';
+    echo $intervalo->format('%h : %i : %s  horas , minutos , segundos'); 
+    echo '<br>';
+    
+
+    $formato = 'Y-m-d';
+    $fecha = DateTime::createFromFormat($formato , '2009-02-12');
+    echo 'Formato: ' . $formato . $fecha->format('Y-m-d H:i:s') . "\n";
 ?>

@@ -51,10 +51,14 @@
         foreach ($array1 as $key => $array_fila_g) {
             $array_datos = array();
             foreach ($array2 as $key => $array_fila_2) {
-                if ($array_fila_g[0] == $array_fila_2[0]){
-                    array_push($array_datos , $array_fila_g);
+                if ($array_fila_g[5] == 'electrico') {
                     
+                }else {
+                    if ($array_fila_g[0] == $array_fila_2[0]){
+                        array_push($array_datos , $array_fila_g);
+                    }
                 }
+                
             }
         }
         return $array_datos;
