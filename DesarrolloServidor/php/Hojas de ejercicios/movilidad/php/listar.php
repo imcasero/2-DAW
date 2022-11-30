@@ -17,7 +17,7 @@
     $array_vehiculos = lec($fichero_vehiculos);
     fclose($fichero_vehiculos);
     $array_logistica = lec($logistica);
-    fclose($logistica);
+    fclose($logistica);//añadir recuento de horas entre 6:00 y 11:00
     $array_residentes = lec($residentes);
     fclose($residentes);
     $array_servicios = lec($servicios);
