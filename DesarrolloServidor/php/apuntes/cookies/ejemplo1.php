@@ -1,5 +1,3 @@
 <?php
-    echo $_COOKIE['Fecha'] . '<br>';
-    echo $_COOKIE['preferencias']['idioma'] . '<br>';
-
+    setcookie('Fecha' , time()+60*24 , 0 , './prueba');
 ?>
