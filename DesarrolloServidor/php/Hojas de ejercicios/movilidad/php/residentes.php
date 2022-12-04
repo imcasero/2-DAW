@@ -1,38 +1,38 @@
 <?php
-function repintar($cadena){
+    function repintar($cadena){
             echo '
             <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8" />
-                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Solicitud para residentes</title>
-            </head>
-            <body>
-            <h3>Solicitud Residentes</h3>
-            <form action="../php/residentes.php" method="post">
-                    <label for="matricula">Introduzca la matricula</label></br>
-                    <input type="text" name="matricula" placeholder="1111-AAA"></br></br>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8" />
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <title>Solicitud para residentes</title>
+                </head>
+                <body>
+                <h3>Solicitud Residentes</h3>
+                <form action="../php/residentes.php" method="post">
+                        <label for="matricula">Introduzca la matricula</label></br>
+                        <input type="text" name="matricula" placeholder="1111-AAA"></br></br>
 
-                    <label for="direccion">Direccion</label></br>
-                    <input type="text" name="direccion" placeholder="Calle Numero"></br></br>
+                        <label for="direccion">Direccion</label></br>
+                        <input type="text" name="direccion" placeholder="Calle Numero"></br></br>
 
-                    <label for="inicio">Fecha de ingreso</label></br>
-                    <input type="text" name="inicio" placeholder="00/00/0000"></br></br>
+                        <label for="inicio">Fecha de ingreso</label></br>
+                        <input type="text" name="inicio" placeholder="00/00/0000"></br></br>
 
-                    <label for="salida">Fecha de salida</label></br>
-                    <input type="text" name="salida" placeholder="00/00/0000"></br>
-                    ' .$cadena. '
+                        <label for="salida">Fecha de salida</label></br>
+                        <input type="text" name="salida" placeholder="00/00/0000"></br>
+                        ' .$cadena. '
 
-                    <button type="submit">Enviar</button>
-                </form>
-            </body>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </body>
             </html>
             ';
-        }
+    }
     function insertar($matricula , $direccion , $inicio , $salida){
-        $cad = "\n" .$matricula . ' ' . $direccion . ' ' . $inicio . ' ' . $salida;
+        $cad = "\n" .$matricula . ' ' . $direccion . ' ' . $inicio->format("Y/m/d") . ' ' . $salida->format("Y/m/d");
 
         $fichero = @fopen('../txt/residentesYHoteles.txt' , 'a+');
         if (!$fichero) {
@@ -81,16 +81,6 @@ function repintar($cadena){
             repintar($cad_2);
         } else {
             insertar($matricula , $direccion , $inicio_date , $salida_date);
-        }
-        
-
-        
-        
-
-        
-        
-        
-
-        
+        } 
     }
 ?>
