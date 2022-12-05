@@ -28,7 +28,7 @@
     fclose($vehiculosEMT);
 
     $resul = array();
-    array_push($resul , comp_array($array_vehiculos , $array_logistica));
+    array_push($resul , comp_array_log($array_vehiculos , $array_logistica));
     array_push($resul, comp_array($array_vehiculos, $array_residentes));
     array_push($resul, comp_array($array_vehiculos, $array_servicios));
     array_push($resul, comp_array($array_vehiculos, $array_taxis));
@@ -36,6 +36,28 @@
 
 
     imp_tabla($resul);
+    function comp_array_log($array1 , $array2){
+        foreach ($array1 as $key => $array_fila_g) {
+            $inicio = new DateTime('06:00:00');
+            $fin = new DateTime('11:00:00');
+            $array_datos = array();
+            foreach ($array2 as $key => $array_fila_2) {
+            
+            if($array_fila_g[4] > $inicio && $array_fila_g[4]< $fin){
+            }else {
+                if ($array_fila_g[5] == 'electrico') {
+                    
+                }else {
+                    if ($array_fila_g[0] == $array_fila_2[0]){
+                        array_push($array_datos , $array_fila_g);
+                    }
+                }  
+            }
+                         
+            }
+        }
+        return $array_datos;
+    }
 
     function lec($fichero){
         $array_datos = array();
