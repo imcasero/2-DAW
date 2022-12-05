@@ -83,4 +83,4 @@
             insertar($matricula , $direccion , $inicio_date , $salida_date);
         } 
     }
-?>
+?> 

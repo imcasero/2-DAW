@@ -44,5 +44,6 @@
             die('fichero inaccesible');
         };
         fwrite($logistica , $cad);
+        fclose($logistica);
     }
 ?>
