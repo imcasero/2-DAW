@@ -8,13 +8,19 @@
   </head>
   <body>
     <div id="botones">
-      <button onclick="añadir()">Añadir</button>
-      <button onclick="borrar()">Borrar</button>
+      <button onclick="añadir()">
+        <img src="./img/plus-16.png" alt="Añadir hijo" />
+      </button>
+      <button onclick="borrar()">
+        <img src="./img/trash-9-16.png" alt="borrar" />
+      </button>
     </div>
     <div>
-        <ul id="lista">
-            <li>Raiz</li>
-        </ul>
+      <ul>
+        <li>Raiz</li>
+        <ul id="lista"></ul>
+      </ul>
     </div>
   </body>
+  <script src="index.js"></script>
 </html>
