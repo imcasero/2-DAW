@@ -17,8 +17,6 @@
             <td>Tipo</td>
             <td>Precio</td>
 			<td class="imagen"></td>
-			<td class="imagen"></td>
-			<td class="imagen"></td>
         </tr>
 			 <tr>
             <td>Codigo</td>
