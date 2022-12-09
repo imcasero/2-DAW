@@ -1,5 +1,6 @@
 <?php
-    
+    //MAS EFICIENTE : MIRAR SOLO DE FICHERO EN FICHERO SIN SOBRECARGAR LA MEMORIA, SI ENCUENTRO DATO BREAK;
+    //CONCATENAR IFS
     $fichero_vehiculos = @fopen("../txt/vehiculos.txt" , "r"); //fichero general
     comp($fichero_vehiculos);
     $logistica = @fopen("../txt/logistica.txt" , "r");
@@ -45,7 +46,7 @@
             
             if($array_fila_g[4] > $inicio && $array_fila_g[4]< $fin){
             }else {
-                if ($array_fila_g[5] == 'electrico') {
+                if (trim($array_fila_g[5]) == 'electrico') {
                     
                 }else {
                     if ($array_fila_g[0] == $array_fila_2[0]){
@@ -69,11 +70,11 @@
         return $array_datos;
     };
     function comp_array($array1 , $array2){
-        
+        $array_datos = array();
         foreach ($array1 as $key => $array_fila_g) {
-            $array_datos = array();
+            
             foreach ($array2 as $key => $array_fila_2) {
-                if ($array_fila_g[5] == 'electrico') {
+                if (trim($array_fila_g[5]) == 'electrico') {
                     
                 }else {
                     if ($array_fila_g[0] == $array_fila_2[0]){

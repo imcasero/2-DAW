@@ -1,8 +1,6 @@
 <?php
     $cadena_error = 
-    '<p style="color : red; font-size : 10px > 
-        Este campo es obligatorio o incorrecto
-    </p>';
+    '<p style="color : red; font-size : 10px ">Todos los campos son obligatorios</p>';
     $errors = array();
     if (empty($_POST['name'])){
         array_push($errors , false);
@@ -30,7 +28,6 @@
                 <form action="añadir_cookie.php" method="post">
                 <label for="nombre">Nombre de la cookie</label>
                 <input type="text" name="nombre" >
-
                 <label for="contenido">Introduzca el contenido de la cookie</label>
                 <input type="text" name="contenido"></br></br>
                 <label for="nivel">Nivel donde crear</label>
@@ -39,19 +36,20 @@
                     <option value="1">Nivel 1</option>
                     <option value="2">Nivel 2</option>
                 </select></br>
-
-                '.$cadena_error.'</br>
-
+                '.$cadena_error.'
+                </br>
                 <button type="submit">Crear cookie</button>
                 </form>
                 <h3>Listar cookies</h3>
                 <p>Nivel 0 --> <a href="nivel0.php">Nivel 0</a></p> 
                 <p>Nivel 0 --> Nivel 1 --> <a href="nivel1.php">Nivel 1</a></p> 
-                <p>Nivel 0 --> Nivel 1 --> Nivel 2 --> <a href="nivel2.php">Nivel 3</a></p> 
+                <p>Nivel 0 --> Nivel 1 --> Nivel 2 --> <a href="nivel2.php">Nivel 2</a></p> 
             </body>
         </html>';
     } else {
-
+        $name = $_POST['name'];
+        $contenido = $_POST['contenido'];
+        $nivel = $_POST['nivel'];
     }
     
 ?>
