@@ -88,6 +88,7 @@ function tablaAst(password) {
     let num = Math.floor(Math.random() * (6 - 0));
     var existe = false;
     console.log("Contador: " + cont);
+
     if (array[num] === " ") {
       array[num] = "*";
       possicion_ast.push(num);
@@ -123,6 +124,7 @@ function recogerTeclado(password) {
         let celda = e.target;
         let col = parseInt(celda.cellIndex);
         let fil = parseInt(celda.parentNode.rowIndex);
+        let tecl = document.getElementById("tablaAst");
 
         if (fil > 0) {
           // console.log("La celda es: " + col, fil);
