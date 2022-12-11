@@ -22,6 +22,7 @@ function init() {
 }
 
 function crearInput(tipo) {
+  //Esta funcion me la ha pasado el tonto de daniel con minuscula por subnormal
   let inp = document.createElement("input");
   inp.setAttribute("type", tipo);
   return inp;
