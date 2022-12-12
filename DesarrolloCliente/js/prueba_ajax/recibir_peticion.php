@@ -13,5 +13,18 @@
     }
     $db->select_db($GLOBALS['DB_NAME']);
 
-    
+    $consulta = "SELECT * FROM nombres_edades";
+	$result = mysqli_query($db,$consulta);
+    $cadena = '';
+    $cadena .= '<table>';
+    foreach( $result as $row){
+        $cadena .= '<tr>';
+        foreach( $row as $key => $val){
+            $cadena .= '<td>'. $val .'</td>';
+        }
+        $cadena .= '</tr>';
+    }
+    $cadena .= '</table>';
+
+    echo $cadena;
 ?>
