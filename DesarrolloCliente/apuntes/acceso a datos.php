@@ -12,12 +12,12 @@ $db = mysqli_connect($GLOBALS['DB_IP'], $GLOBALS['DB_USER'], $GLOBALS['DB_PASS']
 
 
 // seleccionamos la base de datos del conector anterior
-mysql_select_db($GLOBALS['DB_NAME'], $db);
+//mysql_select_db($GLOBALS['DB_NAME'], $db);
 
 // verificamos que la conexión haya sido correcta
 if (!$db) 
 {
-echo "No pudo conectarse a la BD: " . mysql_error();
+//echo "No pudo conectarse a la BD: " . mysql_error();
 exit();
 }
 
@@ -29,23 +29,22 @@ exit();
 	
 	// compruebo que exista el usuario con el email anterior
 	$consulta = "SELECT * FROM usuarios WHERE email_c = '$php_email'";
-	$result = mysql_query($consulta,$db);
+	//$result = mysql_query($consulta,$db);
 	
 	if (!$result) 
 			{
-					si no existe.......html
+					
 			} 
 			else 
 			{
-					while ($valor = mysql_fetch_array($result)) 
+					//while ($valor = mysql_fetch_array($result)) 
 					{
 						// aqui se pasan a variables los campos leidos de la base de datos
 						// a través de la variable valor........
 						$ver_ds = $valor['contrasenia_c'];
 						
 						//comprobar que la contrasenia leida e introducida son iguales
-						si son iguales ........html
-						si no son iguales .......html
+						
 						
 						
 					}
@@ -53,5 +52,5 @@ exit();
 			}	
 			
 					
-mysql_close($db);
+//mysql_close($db);
 ?> 
