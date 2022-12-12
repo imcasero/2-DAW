@@ -9,6 +9,7 @@ var teclado;
 var pass_global = new Array();
 var possicion_ast = new Array();
 var cadena_error = "Este campo es obligatorio";
+let cadena_cont = "";
 //let div_asteriscos = document.getElementById("passInput");
 let tabla_asteriscos = document.getElementById("tablaAst");
 function validar() {
@@ -97,8 +98,12 @@ function tablaAst(password) {
       existe = true;
     }
   }
+
   for (let i = 0; i < array.length; i++) {
     console.log("Array asterisco " + i + " : " + array[i]);
+    if (array[i] === " ") {
+      cadena_cont += i + " ";
+    }
   }
   let td_asteriscos = tabla_asteriscos.getElementsByTagName("td");
   let long_asteriscos = td_asteriscos.length;
@@ -159,6 +164,7 @@ function insertarHidden() {
   });
   console.log("Entra en funcion insertarHidden");
   //FOR PARA DEBUG
+
   for (let i = 0; i < possicion_ast.length; i++) {
     console.log("La posicion del asterisco " + i + " es " + possicion_ast[i]);
   }
@@ -170,12 +176,15 @@ function insertarHidden() {
   console.log("asteriscos " + ast_string + " pass " + pass_string);
   let hiddenPass = document.getElementById("hiddenPass");
   let hiddenAst = document.getElementById("hiddenAst");
+  let hiddenPos = document.getElementById("hiddenPos");
 
   hiddenPass.value = pass_string;
   hiddenAst.value = ast_string;
+  hiddenPos.value = cadena_cont;
 
+  console.log("La posicion de la contraseña es " + hiddenPos.value);
   console.log("El valor de la contraseña es " + hiddenPass.value);
-  console.log("El valor de la posicion es " + hiddenAst.value);
+  console.log("El valor de la posicion de asterisco " + hiddenAst.value);
 }
 function borrar() {
   let long_pass = pass_global.length;

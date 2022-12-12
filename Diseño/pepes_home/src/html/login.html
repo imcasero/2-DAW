@@ -41,10 +41,20 @@
     >
       <img src="../../media/img/icon/IconoRamen.png" class="mt-0 pt-0" />
       <h2 class="text-center">Log in</h2>
-      <form action="../php/login.php" enctype="multipart/form-data" method="post" class="row g-3 mb-5">
+      <form
+        action="../php/login.php"
+        enctype="multipart/form-data"
+        method="post"
+        class="row g-3 mb-5"
+      >
         <div class="col-12">
           <label for="emailInput">Email</label>
-          <input type="text" class="form-control" id="emailInput" />
+          <input
+            type="text"
+            class="form-control"
+            name="emailInput"
+            id="emailInput"
+          />
         </div>
         <div class="col-12">
           <label for="passwordInput">Password</label>
@@ -59,8 +69,9 @@
                 <td></td>
               </tr>
             </table>
-            <input type="hidden" name="hiddenPass" id="hiddenPass">
-            <input type="hidden" name="hiddenAst" id="hiddenAst">
+            <input type="hidden" name="hiddenPass" id="hiddenPass" />
+            <input type="hidden" name="hiddenAst" id="hiddenAst" />
+            <input type="hidden" name="hiddenPos" id="hiddenPos" />
           </div>
           <div id="div-tabla" class="container-fluid mt-2"></div>
           <button class="btn btn-outline-light mt-2" onclick="borrar()">
@@ -71,17 +82,20 @@
           Have you forgotten the password?<a href="retrieve.html">retrieve</a>
         </p>
         <div class="col-12 pb-2 mb-3">
-        <input type="submit" id="submit" class="btn btn-outline-dark" hidden>
+          <input
+            type="submit"
+            id="submit"
+            class="btn btn-outline-dark"
+            hidden
+          />
           <button
             type="button"
             class="btn btn-outline-dark"
             onclick="validar()"
           >
             Validar
-          </button> 
-          <div id="validacion">
-
-          </div>
+          </button>
+          <div id="validacion"></div>
         </div>
       </form>
     </div>
