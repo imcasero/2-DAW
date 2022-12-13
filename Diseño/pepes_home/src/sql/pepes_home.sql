@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2022 a las 11:44:57
+-- Tiempo de generación: 13-12-2022 a las 11:49:20
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -38,6 +38,14 @@ CREATE TABLE `clientes` (
   `rol` enum('Admin','User') COLLATE utf8_spanish2_ci NOT NULL,
   `puntos` varchar(5) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`nombre`, `apellidos`, `contraseña`, `fecha_nacimiento`, `email`, `direccion`, `telefono`, `rol`, `puntos`) VALUES
+('Diego', 'Casero Martin', '111111', '2001-06-06 00:00:00', 'diegocasero@gmail.com', 'C/Jeronima Llorente ', '666666666', 'Admin', '100'),
+('Diego', 'Casero Martin', '111111', '2001-06-06 00:00:00', 'diegocasero1@gmail.com', 'C/Jeronima Llorente ', '666666666', 'User', '100');
 
 --
 -- Índices para tablas volcadas
