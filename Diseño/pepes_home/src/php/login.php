@@ -25,7 +25,7 @@
 
     $db = mysqli_connect($GLOBALS['DB_IP'] , $GLOBALS['DB_USER'] , $GLOBALS['DB_PASS']);
     if (!$db){
-        die('No se puedo conectar con la BD' . mysqli_error());
+        die('No se puedo conectar con la BD' );
     }
 
     mysqli_select_db($db ,  $GLOBALS['DB_NAME']);
@@ -33,14 +33,14 @@
     $result_email = mysqli_query($db , $const_email);
 
     if(!$result_email){
-        die('El email no existe' . mysqli_error());
+        die('El email no existe' );
     }
 
     $const_cont = "SELECT contraseña FROM clientes WHERE email LIKE '$email'";
     $result_cont =mysqli_query($db , $const_cont);
 
     if(!$result_cont){
-        die('El email no existe' . mysqli_error());
+        die('El email no existe' );
     }
     $email_db;
     $pass_db;
