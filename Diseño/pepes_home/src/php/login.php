@@ -1,4 +1,5 @@
 <?php
+    $inter = true;
     $email = $_POST['emailInput'];
     $contraseña = $_POST['hiddenPass'];
     $pos_asteriscos = $_POST['hiddenAst'];
@@ -53,8 +54,20 @@
             $pass_db= $value;
         }
     }
-    echo $pass_db . " " . $email_db;
+    $array_pass_db = str_split($pass_db );
     
 
+    for ($i=0; $i < count($contraseña); $i++) { 
+        if ($array_pass_db[$pos_pass[$i]] !==  $contraseña[$i]) {
+            $inter = false;
+            break;
+        }
+    }
+    
+    if ($inter) {
+        header('Location: ../../index.html');
+    } else {
+        header('Location: ../html/error_login.html');
+    }
 
 ?>
