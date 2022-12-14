@@ -9,7 +9,6 @@ lista.addEventListener("click", (e) => {
   }
   target_evento = e.target;
 });
-
 function añadir() {
   if (target_evento !== undefined) {
     let ul_child = document.createElement("ul");
@@ -27,4 +26,9 @@ function añadir() {
     li.textContent = cad;
     lista.appendChild(li);
   }
+}
+function borrar() {
+  let hijos_click = target_evento.children;
+  console.log(hijos_click);
+  target_evento.removeChild(hijos_click);
 }
