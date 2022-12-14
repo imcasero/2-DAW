@@ -13,13 +13,12 @@ lista.addEventListener("click", (e) => {
 function añadir() {
   if (target_evento !== undefined) {
     let ul_child = document.createElement("ul");
+    let aux_p = target_evento.textContent;
+    let cont_p = aux_p.charAt(5);
     target_evento.appendChild(ul_child);
     let li_hijo = document.createElement("li");
     cont_h++;
-
-    let cont_padre = ul_child.parentElement.textContent;
-    console.log(cont_padre);
-    li_hijo.textContent = cont_h;
+    li_hijo.textContent = `nodo0${cont_p}${cont_h}`;
     ul_child.appendChild(li_hijo);
   } else {
     let li = document.createElement("li");
