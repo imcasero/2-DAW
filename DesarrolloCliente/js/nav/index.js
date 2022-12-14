@@ -1,27 +1,31 @@
-const lista = document.getElementById("lista");
-let hijo;
-let i = 0;
-let j = 0;
+let cont_list = document.getElementById("cont_list");
+let lista = document.getElementById("lista");
+let target_evento;
+let cont_g = 0;
+let cont_h = 0;
 lista.addEventListener("click", (e) => {
-  let uls = document.createElement("ul");
-  uls.setAttribute("id", `nodohijo${i}`);
-  e.currentTarget.appendChild(uls);
-  hijo = document.getElementById(`nodohijo${i}`);
-  añadir(hijo);
-});
-function añadir() {
-  if (!hijo) {
-    let lis = document.createElement("li");
-    i++;
-    lis.textContent = `nodo0${i}`;
-    lista.appendChild(lis);
-  } else {
-    let lis = document.createElement("li");
-    i++;
-    lis.textContent = `nodo0${j}${i}`;
-    hijo.appendChild(lis);
+  if (target_evento !== e.target) {
+    cont_h = 0;
   }
-}
-function borrar() {
-  console.log("borrar");
+  target_evento = e.target;
+});
+
+function añadir() {
+  if (target_evento !== undefined) {
+    let ul_child = document.createElement("ul");
+    target_evento.appendChild(ul_child);
+    let li_hijo = document.createElement("li");
+    cont_h++;
+
+    let cont_padre = ul_child.parentElement.textContent;
+    console.log(cont_padre);
+    li_hijo.textContent = cont_h;
+    ul_child.appendChild(li_hijo);
+  } else {
+    let li = document.createElement("li");
+    cont_g++;
+    let cad = `nodo0${cont_g}`;
+    li.textContent = cad;
+    lista.appendChild(li);
+  }
 }
