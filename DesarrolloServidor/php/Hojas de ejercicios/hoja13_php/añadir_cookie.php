@@ -2,7 +2,7 @@
     $cadena_error = 
     '<p style="color : red; font-size : 10px ">Todos los campos son obligatorios</p>';
     $errors = array();
-    if (empty($_POST['name'])){
+    if (empty($_POST['nombre'])){
         array_push($errors , false);
     }
     if (empty($_POST['contenido'])){
@@ -11,8 +11,7 @@
     if (empty($_POST['nivel'])){
         array_push($errors , false);
     }
-
-
+    
     if(in_array(false , $errors)){
         echo '
         <!DOCTYPE html>
@@ -28,6 +27,7 @@
                 <form action="añadir_cookie.php" method="post">
                 <label for="nombre">Nombre de la cookie</label>
                 <input type="text" name="nombre" >
+
                 <label for="contenido">Introduzca el contenido de la cookie</label>
                 <input type="text" name="contenido"></br></br>
                 <label for="nivel">Nivel donde crear</label>
@@ -47,9 +47,28 @@
             </body>
         </html>';
     } else {
-        $name = $_POST['name'];
+        $nombre = $_POST['nombre'];
         $contenido = $_POST['contenido'];
-        $nivel = $_POST['nivel'];
+        $nivel = $_POST['nivel']; // 1, 2 ,3
+
+        insertar($nombre , $contenido , $nivel);
+
+        
+    }
+    function insertar($nomb , $cont , $niv){
+        switch ($niv) {
+            case 0:
+                $cad = './nivel'.$niv;
+                break;
+            
+            case 1:
+                $cad = './nivel0/nivel'.$niv;
+                break;
+            case 2:
+                $cad = './nivel0/nivel1/nivel'.$niv;
+                break;
+        }
+        setcookie($nomb , $cont , time()+60*60 , $cad);
     }
     
 ?>
