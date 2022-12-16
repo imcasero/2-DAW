@@ -28,7 +28,5 @@ function añadir() {
   }
 }
 function borrar() {
-  let hijos_click = target_evento.children;
-  console.log(hijos_click);
-  target_evento.removeChild(hijos_click);
+  target_evento.parentNode.removeChild(target_evento);
 }
