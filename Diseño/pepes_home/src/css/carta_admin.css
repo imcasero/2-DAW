@@ -1,0 +1,68 @@
+:root {
+  --gris: #f3eeee;
+  --rojo: #ec452d;
+  --negro: #403e3e;
+}
+* {
+  margin: 0;
+}
+@font-face {
+  font-family: "shojumaru";
+  src: url("../../fonts/shojumaru-regular.ttf");
+}
+@font-face {
+  font-family: "hashiba";
+  src: url("../../fonts/Hashiba.ttf");
+}
+header {
+  display: flex;
+  background-color: var(--rojo);
+  font-family: shojumaru;
+  height: 12vh;
+  align-items: center;
+  justify-content: center;
+}
+header h1 {
+  font-size: 40px;
+}
+.img-ramen {
+  width: 48px;
+  height: 48px;
+}
+nav {
+  display: flex;
+  background-color: var(--negro);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-family: hashiba;
+  font-size: 20px;
+  height: 42px;
+}
+nav li {
+  display: inline-flex;
+  list-style: none;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+nav li a {
+  color: white;
+  text-decoration: none;
+}
+nav li a:hover {
+  color: var(--rojo);
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: var(--rojo);
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+footer p {
+  text-align: center;
+  margin: 10px;
+}
