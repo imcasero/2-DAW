@@ -60,14 +60,14 @@ echo $_POST['nivel'];
     }
     function insertar($nomb , $cont , $niv){
         switch ($niv) {
-            case 0:
+            case 'nivel0':
                 $cad = './nivel'.$niv;
                 break;
             
-            case 1:
+            case 'nivel1':
                 $cad = './nivel0/nivel'.$niv;
                 break;
-            case 2:
+            case 'nivel2':
                 $cad = './nivel0/nivel1/nivel'.$niv;
                 break;
         }
