@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_SESSION['aut'])){
+if (!isset($_SESSION['aut'])){
     if(!empty($_POST['nam']) && !empty($_POST['pass'])){
         if ($_POST['pass'] == 'diego' && $_POST['nam'] == 'diego'){
             $_SESSION['aut'] = true;
