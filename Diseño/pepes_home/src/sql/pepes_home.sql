@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-12-2022 a las 11:49:20
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 07-01-2023 a las 16:52:03
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,19 +24,40 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `carta`
+--
+
+CREATE TABLE `carta` (
+  `id_plato` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `ingredientes` varchar(255) NOT NULL,
+  `cat` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `carta`
+--
+
+INSERT INTO `carta` (`id_plato`, `nombre`, `ingredientes`, `cat`) VALUES
+(1, 'Caracoles picantes', 'Caracoles, guindillas', 1),
+(2, 'Chuleton', 'Chuleton, sal, aceite, cebolla, pimienta ,ingrdiente secreo', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `clientes`
 --
 
 CREATE TABLE `clientes` (
-  `nombre` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `apellidos` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `contraseña` varchar(6) COLLATE utf8_spanish2_ci NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `apellidos` varchar(20) NOT NULL,
+  `contraseña` varchar(6) NOT NULL,
   `fecha_nacimiento` datetime NOT NULL,
-  `email` varchar(40) COLLATE utf8_spanish2_ci NOT NULL,
-  `direccion` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `telefono` varchar(11) COLLATE utf8_spanish2_ci NOT NULL,
-  `rol` enum('Admin','User') COLLATE utf8_spanish2_ci NOT NULL,
-  `puntos` varchar(5) COLLATE utf8_spanish2_ci NOT NULL
+  `email` varchar(40) NOT NULL,
+  `direccion` varchar(20) NOT NULL,
+  `telefono` varchar(11) NOT NULL,
+  `rol` enum('Admin','User') NOT NULL,
+  `puntos` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
