@@ -80,8 +80,9 @@ footer p {
   text-align: center;
 }
 #carta {
-  background-color: white;
-  color: #403e3e;
+  display: block;
+  background-color: var(--negro);
+  color: white;
   border-color: var(--negro);
   margin: 0 auto;
 }

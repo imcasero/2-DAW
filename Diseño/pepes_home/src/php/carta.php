@@ -12,9 +12,9 @@ if (!$db){
 mysqli_select_db($db ,  $GLOBALS['DB_NAME']);
 $query = "SELECT * FROM carta";
 $result = mysqli_query($db, $query);
+$i = 0;
 while ($row = mysqli_fetch_array($result)) {
     $respuesta .= '<tr>';
-    $respuesta.= "<td>" . $row['id_plato'] . "</td>";
     $respuesta.= "<td>" . $row['nombre'] . "</td>";
     switch ($row['cat']) {
         case '1':
@@ -28,6 +28,8 @@ while ($row = mysqli_fetch_array($result)) {
             $respuesta.= "<td>postre</td>";
             break;
     }
+    $respuesta .= "<td class='button'></td>";
+    $i++;
     $respuesta .= '</tr>';
 }
 

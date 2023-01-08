@@ -17,6 +17,10 @@ function procesaRespuesta() {
     if (peticion_http_prueba.status == 200) {
       var respuesta = peticion_http_prueba.responseText;
       carta.innerHTML = respuesta;
+      añadirboton();
     }
   }
+}
+function añadirboton() {
+  console.log("añadir boton");
 }
