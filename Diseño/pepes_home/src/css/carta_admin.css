@@ -67,11 +67,21 @@ footer p {
   margin: 10px;
 }
 #contenedor_carta {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
   width: 70%;
   border-radius: 5px;
   margin: auto;
+  height: 50vh;
   margin-top: 50px;
-  background-color: black;
+  background-color: var(--rojo);
+  color: var(--gris);
   align-items: center;
+  text-align: center;
+}
+#carta {
+  background-color: white;
+  color: #403e3e;
+  border-color: var(--negro);
+  margin: 0 auto;
 }
