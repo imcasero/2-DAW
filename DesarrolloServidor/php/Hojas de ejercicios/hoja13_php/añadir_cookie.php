@@ -58,17 +58,17 @@ echo $_POST['nivel'];
 
         
     }
-    function insertar($nomb , $cont , $niv){
-        switch ($niv) {
+    function insertar($nomb , $cont){
+        switch ($_POST['nivel']) {
             case 'nivel0':
-                $cad = './'.$niv;
+                $cad = '/hoja13_php/'.$_POST['nivel'];
                 break;
             
             case 'nivel1':
-                $cad = './nivel1/'.$niv;
+                $cad = 'hoja13_php/nivel1/'.$_POST['nivel'];
                 break;
             case 'nivel2':
-                $cad = './nivel1/nivel2/'.$niv;
+                $cad = 'hoja13_php/nivel1/nivel2/'.$_POST['nivel'];
                 break;
         }
         $segura = false;
