@@ -1,7 +1,7 @@
 <?php
     $con = new mysqli("localhost","root","root");
-    $con->select_db("prueba_ajax");
-    $strsql="SELECT * FROM nombres_edades";
+    $con->select_db("jardineria");
+    $strsql="SELECT * FROM clientes";
     if ($resu=$con->query($strsql)){
     while($fila=$resu->fetch_row()){
     
