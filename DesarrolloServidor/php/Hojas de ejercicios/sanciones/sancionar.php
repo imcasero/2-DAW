@@ -23,6 +23,7 @@
         
         $cadena = $cod[0]+1 .',' . $a .',' .$s . ',' .$hoy->format("Y-m-d"). ',' .$sc . ',' . $e . "\n";
         fwrite($fichero_lec , $cadena);
+        header("Location:index.php");
     }
     
 ?>
