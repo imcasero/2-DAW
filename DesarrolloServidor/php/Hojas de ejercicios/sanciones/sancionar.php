@@ -8,8 +8,13 @@
 
     function insertar($a , $s , $sc , $e){
         $fichero_cod = @fopen("alumnos_sancionados.txt", "r");
-        $cadena = fseek($fichero_cod, -1, SEEK_END) ;
-        $cod = explode(",", $cadena);
+        if (!$fichero_cod){
+            die("Error en el fichero");
+        }
+        $fichero="alumnos_sancionados.txt";
+        $filas=file($fichero);
+        $cod=$filas[count($filas)-1];
+        $cod = explode(",", $cod);
         $fichero_lec = @fopen("alumnos_sancionados.txt", "a");
         if (!$fichero_lec){
             die("Error en el fichero");
