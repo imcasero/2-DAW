@@ -28,7 +28,8 @@ while ($row = mysqli_fetch_array($result)) {
             $respuesta.= "<td>postre</td>";
             break;
     }
-    $respuesta .= "<td class='button'></td>";
+    $respuesta .= "<td class='edit'><button>Edit</button></td>";
+    $respuesta .= "<td class='delete'><button>Delete</button></td>";
     $i++;
     $respuesta .= '</tr>';
 }

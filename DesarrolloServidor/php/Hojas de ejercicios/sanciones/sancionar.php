@@ -13,15 +13,15 @@
         }
         $fichero="alumnos_sancionados.txt";
         $filas=file($fichero);
-        $cod=$filas[count($filas)-1];
-        $cod = explode(",", $cod);
+        $cod = array_pop($filas);
+        
         $fichero_lec = @fopen("alumnos_sancionados.txt", "a");
         if (!$fichero_lec){
             die("Error en el fichero");
         }
         $hoy = new DateTime('now');
         
-        $cadena = $cod[0]++ .',' . $a .',' .$s . ',' .$hoy->format("Y-m-d"). ',' .$sc . ',' . $e . "\n";
+        $cadena = $cod[0]+1 .',' . $a .',' .$s . ',' .$hoy->format("Y-m-d"). ',' .$sc . ',' . $e . "\n";
         fwrite($fichero_lec , $cadena);
     }
     
