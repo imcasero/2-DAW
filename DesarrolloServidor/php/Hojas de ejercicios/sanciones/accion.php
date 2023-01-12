@@ -8,14 +8,15 @@
         die("Error en fichero sanc_r");
     }
     $datos = explode("," , $_POST['hidden']); //Estado[EP , P , C] , codigo sancion; ()llega desde los botoens con los datos
-    print_r($datos);
     if (trim($datos[0]) == 'En proceso') { // si datos 0(Estado [En proceso]) 
         while(!feof($sanc_r)){
             $in = explode("," , fgets($sanc_r));
-            if (trim($datos[1]) == trim($in[0])){ //cuando cincida el cod
-                 echo $in[5] . 'antes <br>' ;
-                $in[5] = 'C'; //cambio el estado
-                echo $in[5] . 'despues <br>' ;
+            if (trim($datos[1]) == $in[0]){ //cuando cincida el cod
+                //  print_r($in);
+                //  echo '<br> barrera';
+                $in[5] = "C\n"; //cambio el estado
+                // print_r($in);
+                // echo '<br>';
                 fwrite($back_w , implode("," , $in));// lo escribo en el fichero aux
             }else {
                 fwrite($back_w , implode("," , $in));// Si no escribo la lina para no perderla
@@ -24,10 +25,12 @@
     }else if (trim($datos[0]) == 'pendiente'){ // lo mismo pero con pendiente
         while(!feof($sanc_r)){
             $in = explode("," , fgets($sanc_r));
-            if (trim($datos[1]) == trim($in[0])){
-                echo $in[5] . 'antes <br>' ;
-                $in[5] = 'EP';
-                echo $in[5] . 'despues <br>' ;
+            if (trim($datos[1]) == $in[0]){
+                // print_r($in);
+                // echo '<br> barrera';
+                $in[5] = "EP \n";
+                // print_r($in);
+                // echo '<br>';
                 fwrite($back_w , implode("," , $in));
             }else {
                 fwrite($back_w , implode("," , $in));
@@ -53,5 +56,9 @@
     foreach ($array_aux as $key => $value) {
         fwrite($sanc_w , $value); //escribo los datos de aux
     }
-    // header('Location: ejecutar.php');
+    fclose($sanc_w);
+    fclose($back_r);
+    $back_b=@fopen("back.txt", "w+"); //para borrar backup
+    fclose($back_b);
+    header('Location: ejecutar.php');
 ?>

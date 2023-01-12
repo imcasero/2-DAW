@@ -8,6 +8,7 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Document</title>
+            <link rel="stylesheet" href="style.css">
         </head>
     <body>';
 
@@ -15,7 +16,6 @@
     if (!$fichero) {
         die("Error en el fichero");
     }
-    echo '<div class="contenedor">';
     echo '<table>';
     while(!feof($fichero)){
         $fila = explode("," , fgets($fichero));
@@ -26,7 +26,6 @@
         echo '</tr>';
     }
     echo '</table>';
-    echo '</div>';
 
     echo '</body>
 </html>';
