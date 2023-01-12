@@ -8,20 +8,27 @@
     echo '<table>';
     while(!feof($fichero)){
         $fila = explode("," , fgets($fichero));
-        echo $fila[1] . '<br>';
         if ($alumno == $fila[1]){
             echo '<tr>';
             foreach ($fila as $key => $value) {
-                
-                if ($value == 'EP' || $value == 'P'){
-                    if($value == 'Ep'){
-                        echo '<td><button>Finalizar</button></td>'; 
-                    } else {
-                        echo '<td><button>Finalizar</button></td>';
-                    }
-                }else {
-                    echo '<td>'.$value.'</td>';   
-                }
+                echo '<td>'.$value.'</td>';
+            }
+            if (trim($fila[5]) == 'EP') {
+                echo '
+                <td>
+                    <form action="accion.php" method="post">
+                        <input type="text" name="hidden" value="En proceso,'.$fila[0].'" hidden>
+                        <button type="submit">Finalizar</button>
+                    </form>
+                </td>';
+            } else if (trim($fila[5]) == 'P'){
+                echo '
+                <td>
+                    <form action="accion.php" method="post">
+                        <input type="text" name="hidden" value="pendiente,'.$fila[0].'" hidden>
+                        <button type="submit">Iniciar</button>
+                    </form>
+                </td>';
             }
             echo '</tr>';
         }            

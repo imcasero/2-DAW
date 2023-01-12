@@ -6,7 +6,7 @@
 
     insertar($alumno , $sancion , $sanc , $estado);
 
-    function insertar($a , $s , $sc , $e){
+    function insertar($a  ,$s, $sc , $e){
         $fichero_cod = @fopen("alumnos_sancionados.txt", "r");
         if (!$fichero_cod){
             die("Error en el fichero");
@@ -20,8 +20,14 @@
             die("Error en el fichero");
         }
         $hoy = new DateTime('now');
-        
-        $cadena = $cod[0]+1 .',' . $a .',' .$s . ',' .$hoy->format("Y-m-d"). ',' .$sc . ',' . $e . "\n";
+        if($s == 'leve'){
+            $s = 'L';
+        } else if($s == 'grave'){
+            $s = 'G';
+        }else {
+            $s = 'MG';
+        }
+        $cadena = "\n" . $cod[0]+1 .',' . $a  . ',' .$hoy->format("Y-m-d"). ','.$s. ','.$sc . ',' . $e  ;
         fwrite($fichero_lec , $cadena);
         header("Location:index.php");
     }

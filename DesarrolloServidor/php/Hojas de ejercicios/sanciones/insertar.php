@@ -24,8 +24,8 @@
         <br><br>
         <label for="sancion" require>Sancion: </label>
         <input type="radio" name="sancion" value="leve">Leve
-        <input type="radio" name="sancion" value="Grave">Grave
-        <input type="radio" name="sancion" value="Muy grave">Muy grave
+        <input type="radio" name="sancion" value="grave">Grave
+        <input type="radio" name="sancion" value="muygrave">Muy grave
 
         <br><br>
         <label for="estado">Estado</label>
