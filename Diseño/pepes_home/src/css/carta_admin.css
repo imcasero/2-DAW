@@ -67,6 +67,7 @@ footer p {
   margin: 10px;
 }
 #contenedor_carta {
+  flex-direction: column;
   display: flex;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
   width: 70%;
@@ -85,4 +86,10 @@ footer p {
   color: white;
   border-color: var(--negro);
   margin: 0 auto;
+}
+#carta td{
+  width: 200px;
+}
+#añadir {
+  margin: 10px;
 }
